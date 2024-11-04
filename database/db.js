@@ -14,7 +14,7 @@ export const pool = new Pool({
 
 try {
   await pool.query("SELECT NOW()");
-  console.log(`Database ${process.env.PGDATABASE} connected`);
+  console.log(`Database ${process.env.PG_DATABASE} connected`);
 } catch (error) {
   console.log(error);
 }
