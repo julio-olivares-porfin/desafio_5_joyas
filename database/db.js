@@ -1,4 +1,4 @@
-import "dotenv/config";
+import "dotenv/config"; // Asegúrate de tener dotenv instalado
 import pkg from "pg";
 
 const { Pool } = pkg;
@@ -9,12 +9,17 @@ export const pool = new Pool({
   database: process.env.PG_DATABASE,
   password: process.env.PG_PASSWORD,
   port: process.env.PG_PORT,
-  allowExitOnIdle: process.env.ALLOW_EXIT_ON_IDLE
+  allowExitOnIdle: process.env.ALLOW_EXIT_ON_IDLE,
 });
 
-try {
-  await pool.query("SELECT NOW()");
-  console.log(`Database ${process.env.PG_DATABASE} connected`);
-} catch (error) {
-  console.log(error);
-}
+
+const connectToDatabase = async () => {
+  try {
+    await pool.query("SELECT NOW()");
+    console.log(`Database ${process.env.PG_DATABASE} connected`);
+  } catch (error) {
+    console.error('Database connection error:', error);
+  }
+};
+
+connectToDatabase();
