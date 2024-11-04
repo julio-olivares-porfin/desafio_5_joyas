@@ -2,6 +2,7 @@
   "name": "desafio5_tiendajoyas",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,7 +13,8 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
-    "pg": "^8.13.1"
+    "pg": "^8.13.1",
+    "pg-format": "^1.0.4"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
